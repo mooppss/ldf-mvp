@@ -1,0 +1,51 @@
+{
+  "version": "2026-10-01.1",
+  "active": "strict-client-confidentiality",
+  "default_destination": "anthropic-api",
+  "known_names": [],
+  "skip_names": [],
+  "profiles": {
+    "strict-client-confidentiality": {
+      "description": "Client names and identities are transformed before anything leaves; exact values never released; unknown destinations blocked.",
+      "person_label": "CLIENT",
+      "outcomes": {
+        "secrets": "block",
+        "pii": "transform",
+        "task_bound_values": "review",
+        "unknown_destination": "block"
+      }
+    },
+    "ordinary-business-use": {
+      "description": "Same as strict, for non-client work; use when identities are internal but still not for publication.",
+      "person_label": "PERSON",
+      "outcomes": {
+        "secrets": "block",
+        "pii": "transform",
+        "task_bound_values": "review",
+        "unknown_destination": "block"
+      }
+    },
+    "public-content": {
+      "description": "Everything leaves as written except secrets; for marketing copy and public drafts.",
+      "person_label": "PERSON",
+      "outcomes": {
+        "secrets": "block",
+        "pii": "release",
+        "task_bound_values": "release",
+        "unknown_destination": "block"
+      }
+    }
+  },
+  "destinations": [
+    {
+      "id": "anthropic-api",
+      "url": "https://api.anthropic.com/v1/messages",
+      "assurance": { "training": false, "retention_days": 30, "receipt": false }
+    },
+    {
+      "id": "openai-api",
+      "url": "https://api.openai.com/v1/chat/completions",
+      "assurance": { "training": false, "retention_days": 30, "receipt": false }
+    }
+  ]
+}

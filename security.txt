@@ -1,0 +1,17 @@
+# security.txt (RFC 9116) — Local Disclosure Firewall
+# Serve this file at /.well-known/security.txt of the project domain, or
+# publish it in the repository root so tooling can discover the reporting
+# channel mechanically.
+
+Contact: mailto:richardchen2008@outlook.com
+Expires: 2028-10-01T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://github.com/mooppss/ldf-mvp/blob/main/security.txt
+Policy: https://github.com/mooppss/ldf-mvp/blob/main/SECURITY.md
+
+# Notes for the maintainer:
+#  - Replace the Canonical and Policy URLs when the repository is published.
+#  - The Expires line MUST be renewed (rotate at least yearly) or automated
+#    scanners will treat the document as expired.
+#  - If GitHub private vulnerability reporting is enabled, it is fine to keep
+#    a single email Contact here; GitHub handles its own channel.
